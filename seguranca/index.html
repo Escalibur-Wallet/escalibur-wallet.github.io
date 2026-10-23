@@ -46,7 +46,7 @@
 <p class="lead">Nenhuma defesa é absoluta. Cada uma tem um custo para quem ataca e um limite, e esta página diz os dois. O modelo de ameaça completo, com os números, está em <a href="https://github.com/Escalibur-Wallet/escalibur-wallet/blob/main/docs/seguranca.md">docs/seguranca.md</a>.</p>
 <ul class="seg-resumo" aria-label="Em resumo">
 <li><b>0</b><span>servidores da Escalibur no caminho</span></li>
-<li><b>97</b><span>verificações a cada mudança</span></li>
+<li><b>111</b><span>verificações a cada mudança</span></li>
 <li><b>256 MiB</b><span>de memória por tentativa de PIN</span></li>
 </ul>
 </div>
@@ -55,7 +55,7 @@
 <section class="bloco" aria-labelledby="t-promessas">
 <div class="wrap">
 <h2 id="t-promessas">O que o app promete</h2>
-<p class="lead intro">E que o código confere a cada mudança, nas 97 verificações da <a href="../auditoria/">auditoria</a>.</p>
+<p class="lead intro">E que o código confere a cada mudança, nas 111 verificações da <a href="../auditoria/">auditoria</a>.</p>
 <ul class="promessas">
 <li><span class="promessa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8.5 10.5V7.8a3.5 3.5 0 0 1 7 0v2.7M12 14.5v2.2"/></svg></span><h3>As palavras nunca saem do celular em claro.</h3><p>Cifradas, só saem por ação sua, num envelope com senha própria. O app não tem conta nem servidor, e não manda chave nem palavra para lugar nenhum.</p></li>
 <li><span class="promessa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor" stroke="none"><circle cx="7" cy="6.5" r="1.5"/><circle cx="12" cy="6.5" r="1.5"/><circle cx="17" cy="6.5" r="1.5"/><circle cx="7" cy="11.5" r="1.5"/><circle cx="12" cy="11.5" r="1.5"/><circle cx="17" cy="11.5" r="1.5"/><circle cx="12" cy="16.5" r="1.5"/></g><path d="M4 20 20 4"/></svg></span><h3>Nenhum verificador de PIN gravado.</h3><p>A chave raiz vai cifrada por uma chave derivada do PIN, com Argon2id de 256 MiB, dentro de um embrulho que só abre no chip de segurança do aparelho (o Secure Enclave, no iPhone). Cada tentativa passa pelo aparelho, uma de cada vez.</p></li>
@@ -141,7 +141,7 @@
 <article class="painel" aria-labelledby="t-auditar">
 <p class="sobretitulo">Auditoria</p>
 <h2 id="t-auditar">Conferido por script, a cada mudança</h2>
-<p class="lead intro">O que esta página afirma, o <code>tools/verificar.sh</code> confere no código: rede só no módulo de rede, chave só no módulo de chaves, chaveiro só em dois arquivos, nenhum SDK de análise, nenhum host fora da lista. São 97 verificações, e o CI para o merge se uma falhar.</p>
+<p class="lead intro">O que esta página afirma, o <code>tools/verificar.sh</code> confere no código: rede só no módulo de rede, chave só no módulo de chaves, chaveiro só em dois arquivos, nenhum SDK de análise, nenhum host fora da lista. São 111 verificações, e o CI para o merge se uma falhar.</p>
 <div class="botoes links-bloco"><a class="botao botao-principal" href="../auditoria/">Abrir a auditoria</a></div>
 </article>
 <article class="painel" aria-labelledby="t-relatar">
@@ -178,7 +178,7 @@
 <div class="rodape-legal">
 <p>A Escalibur Wallet é oferecida por X TECH A.I FUND HOLDING E PARTICIPACOES LTDA, CNPJ 64.019.520/0001-29.</p>
 <p>Apple, iPhone, Face ID e App Store são marcas da Apple Inc. Android, Google Play e o logo do Google Play são marcas do Google LLC. Os logos de redes e moedas pertencem aos seus donos e aparecem só para identificar cada uma.</p>
-<p>Este site foi gerado do commit <a href="https://github.com/Escalibur-Wallet/escalibur-wallet/commit/015f5f5c2de18217a3fdaf218f07060597f3e793">015f5f5</a>, de 19 out. 2026. Sem análise de uso, sem cookie, sem nada carregado de outro site.</p>
+<p>Este site foi gerado do commit <a href="https://github.com/Escalibur-Wallet/escalibur-wallet/commit/9ba3da15ec8963f3cf61b73d5338d906e95765a2">9ba3da1</a>, de 22 out. 2026. Sem análise de uso, sem cookie, sem nada carregado de outro site.</p>
 </div>
 </div>
 </footer>
