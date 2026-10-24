@@ -1678,9 +1678,10 @@
     if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) return false;
     return !!window.WebGLRenderingContext;
   }
-  // A imagem parada das moedas da abertura chega com a pagina, e o 3D toma o lugar dela de uma
-  // vez, so com as faces de todas as moedas prontas (pedido do dono, 24/10/2026: as moedas
-  // apareciam depois da pagina; em 23/10, elas apareciam, sumiam e voltavam).
+  // A imagem parada das moedas da abertura so aparece sem 3D ("sem-3d"): com 3D, as moedas
+  // entram uma vez, ja no lugar, sem a parada antes (pedido do dono, 23/10/2026: elas
+  // apareciam, sumiam e voltavam; em 24/10 o dono pediu para voltar a isso, porque a imagem
+  // parada antes do 3D aparecia meio pixelada).
   if (pode3D() && document.querySelector(".abertura-3d, .destaque-3d, .final-3d, .redes-3d")) {
     var carregar3D = function () {
       var s = document.createElement("script");
