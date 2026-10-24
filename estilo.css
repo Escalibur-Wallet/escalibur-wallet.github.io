@@ -1387,14 +1387,10 @@ img { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; }
 }
 .chaves-detalhe { display: none; font-size: 15px; color: var(--ink-soft); min-height: 3em; }
 
-/* Novidades e Auditoria: o hash em pixels, e a entrega aberta pelo link em destaque. */
+/* Novidades: o hash em pixels, e a entrega aberta pelo link em destaque. */
 .pixels-hash { display: block; }
 .pixels-hash.pequeno { width: min(100%, 300px); aspect-ratio: 10 / 1; height: auto; margin-top: 10px; }
-.pixels-hash.grande { width: min(280px, 70vw); aspect-ratio: 8 / 5; height: auto; margin: 0 auto; }
 .pixels-hash.parede { width: min(640px, 100%); aspect-ratio: 30 / 8; height: auto; margin: 0 auto 32px; }
-.hash-cabeca { margin: 0 0 32px; display: grid; justify-items: center; gap: 12px; }
-.hash-cabeca figcaption { font-size: 14px; color: var(--ink-muted); }
-.hash-cabeca code { font-size: 13px; color: var(--ink-soft); }
 
 .entrega-detalhe summary { color: var(--ink); }
 
