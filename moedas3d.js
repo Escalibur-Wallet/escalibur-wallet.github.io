@@ -90,7 +90,7 @@
     polkadot: { campo: "#E6007A", simbolo: { d: "polkadot", modo: "cheio", escala: 0.58 } },
     "avalanche-2": { campo: "#E84142", simbolo: { desenho: avalanche, escala: 0.8 } },
     "usd-coin": { campo: "#2775CA", simbolo: { desenho: usdc, escala: 0.9 } },
-    escalibur: { campo: "#FF007B", simbolo: { desenho: espada, escala: 1.0 } },
+    escalibur: { campo: "#E1FF00", simbolo: { desenho: espada, escala: 1.0, metal: GRAFITE } },
     verso: { campo: "#1A1A1E", simbolo: { desenho: espada, escala: 1.0 } },
   };
 
