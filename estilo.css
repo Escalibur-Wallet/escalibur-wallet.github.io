@@ -600,6 +600,8 @@ html:not(.movimento) .cadeia-acende li::after { transform: none; }
 .bento-texto h3 { font-size: 23px; letter-spacing: -0.028em; line-height: 1.18; }
 .bento-texto p { font-size: 16px; margin-top: 10px; max-width: 30em; }
 .bento-ladrilho .aparelho { --w: min(240px, 62vw); align-self: center; margin-bottom: 44px; }
+/* No celular, o #151518 quase some sobre o fundo da pagina: um degrau mais claro (pedido do dono, 24/10/2026). */
+@media (max-width: 699px) { .bento-ladrilho { background: var(--rail); } }
 @media (min-width: 700px) and (max-width: 999px) {
   .bento-grade { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .bento-cegas, .bento-parecido, .bento-captura { grid-column: 1 / -1; }
