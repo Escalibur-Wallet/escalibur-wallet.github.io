@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; media-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="As camadas que trancam a chave da sua carteira na Escalibur Wallet, o custo de cada uma para quem ataca e onde cada uma termina.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0B0B0C">
+<title>Como a carteira protege a sua chave · Escalibur Wallet</title>
+<link rel="canonical" href="https://escaliburwallet.com/seguranca/">
+<meta property="og:url" content="https://escaliburwallet.com/seguranca/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Escalibur Wallet">
+<meta property="og:title" content="Como a carteira protege a sua chave · Escalibur Wallet">
+<meta property="og:description" content="As camadas que trancam a chave da sua carteira na Escalibur Wallet, o custo de cada uma para quem ataca e onde cada uma termina.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://escaliburwallet.com/compartilhar.jpg?v=5b5615c423">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://escaliburwallet.com/compartilhar.jpg?v=5b5615c423">
+<link rel="preload" href="../fontes/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../estilo.css?v=9635fad480">
+<link rel="icon" href="../icone-96.png" sizes="96x96" type="image/png">
+<link rel="icon" href="../icone-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="../icone-180.png">
+<script src="../site.js?v=fde4efe4a2" defer></script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="topo">
+<div class="wrap topo-barra">
+<a class="marca" href="../"><img src="../icone-64.png" alt="" width="28" height="28">Escalibur Wallet</a>
+<nav class="nav-largo" aria-label="Principal"><a href="../seguranca/" aria-current="page">Segurança</a><a href="../auditoria/">Auditoria</a><a href="../redes/">Redes e moedas</a><a href="../novidades/">Novidades</a><a href="../suporte/">Suporte</a></nav>
+<details class="nav-curto">
+<summary aria-label="Menu"><span>Menu</span><span class="icone-menu" aria-hidden="true"></span></summary>
+<nav class="nav-curto-lista" aria-label="Principal"><a href="../">Início</a><a href="../seguranca/" aria-current="page">Segurança</a><a href="../auditoria/">Auditoria</a><a href="../redes/">Redes e moedas</a><a href="../novidades/">Novidades</a><a href="../suporte/">Suporte</a></nav>
+</details>
+</div>
+</header>
+<main id="conteudo">
+<header class="cabeca-pagina seg-cabeca cabeca-centro">
+<div class="wrap">
+<canvas class="pixels-cadeado" aria-hidden="true"></canvas>
+<p class="sobretitulo">Segurança</p>
+<h1 class="titulo-pagina">Sua chave, trancada em camadas.</h1>
+<p class="lead">O PIN, o chip de segurança do celular e 256 MiB de memória por tentativa trancam a sua chave, e cada camada cobra caro de quem tenta passar. Aqui você vê o que cada uma protege, e o que esta página afirma é conferido no código a cada mudança. O modelo de ameaça completo, com os números, está aberto para você conferir em <a href="https://github.com/Escalibur-Wallet/escalibur-wallet/blob/main/docs/seguranca.md">docs/seguranca.md</a>.</p>
+<ul class="seg-resumo" aria-label="Em resumo" data-revelar>
+<li><b>0</b><span>servidores da Escalibur no caminho</span></li>
+<li><b>111</b><span>verificações a cada mudança</span></li>
+<li><b>256 MiB</b><span>de memória por tentativa de PIN</span></li>
+</ul>
+</div>
+</header>
+
+<section class="bloco titulos-centro" aria-labelledby="t-promessas">
+<div class="wrap">
+<h2 id="t-promessas">Seis garantias, conferidas no código</h2>
+<p class="lead intro">Não é promessa de folheto: cada uma é checada no código a cada mudança, nas 111 verificações da <a href="../auditoria/">auditoria</a>.</p>
+<ul class="promessas">
+<li data-revelar><span class="promessa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8.5 10.5V7.8a3.5 3.5 0 0 1 7 0v2.7M12 14.5v2.2"/></svg></span><h3>As palavras nunca saem do celular em claro.</h3><p>Cifradas, só saem por ação sua, num envelope com senha própria. O app não tem conta nem servidor, e não manda chave nem palavra para lugar nenhum.</p></li>
+<li data-revelar><span class="promessa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor" stroke="none"><circle cx="7" cy="6.5" r="1.5"/><circle cx="12" cy="6.5" r="1.5"/><circle cx="17" cy="6.5" r="1.5"/><circle cx="7" cy="11.5" r="1.5"/><circle cx="12" cy="11.5" r="1.5"/><circle cx="17" cy="11.5" r="1.5"/><circle cx="12" cy="16.5" r="1.5"/></g><path d="M4 20 20 4"/></svg></span><h3>Nenhum verificador de PIN gravado.</h3><p>A chave raiz vai cifrada por uma chave derivada do PIN, com Argon2id de 256 MiB, dentro de um embrulho que só abre no chip de segurança do aparelho (o Secure Enclave, no iPhone). Cada tentativa passa pelo aparelho, uma de cada vez.</p></li>
+<li data-revelar><span class="promessa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2M9.5 9.5v1.2M14.5 9.5v1.2M12 9.5v3.5h-1M9.6 15.8c1.4 1.1 3.4 1.1 4.8 0"/></svg></span><h3>Rosto novo não abre a carteira.</h3><p>O atalho do Face ID vale só para os rostos cadastrados hoje: cadastrar um rosto novo no iPhone destrói o atalho em vez de abri-lo. O código de desbloqueio do celular não abre nada aqui.</p></li>
+<li data-revelar><span class="promessa-icone"><svg class="pixel-icone" viewBox="0 0 13 10" aria-hidden="true"><g fill="currentColor" stroke="none"><path d="M5.08 1.08h.84v.84h-.84zM6.08 1.08h.84v.84h-.84zM7.08 1.08h.84v.84h-.84zM5.08 2.08h.84v.84h-.84zM7.08 2.08h.84v.84h-.84zM5.08 3.08h.84v.84h-.84zM6.08 3.08h.84v.84h-.84zM7.08 3.08h.84v.84h-.84zM6.08 4.08h.84v.84h-.84zM6.08 5.08h.84v.84h-.84zM6.08 6.08h.84v.84h-.84zM7.08 6.08h.84v.84h-.84zM6.08 7.08h.84v.84h-.84zM6.08 8.08h.84v.84h-.84zM7.08 8.08h.84v.84h-.84z"/><path opacity="0.55" d="M0.08 1.08h.84v.84h-.84zM1.08 1.08h.84v.84h-.84zM2.08 1.08h.84v.84h-.84zM10.08 1.08h.84v.84h-.84zM11.08 1.08h.84v.84h-.84zM12.08 1.08h.84v.84h-.84zM0.08 2.08h.84v.84h-.84zM2.08 2.08h.84v.84h-.84zM10.08 2.08h.84v.84h-.84zM12.08 2.08h.84v.84h-.84zM0.08 3.08h.84v.84h-.84zM1.08 3.08h.84v.84h-.84zM2.08 3.08h.84v.84h-.84zM10.08 3.08h.84v.84h-.84zM11.08 3.08h.84v.84h-.84zM12.08 3.08h.84v.84h-.84zM1.08 4.08h.84v.84h-.84zM11.08 4.08h.84v.84h-.84zM1.08 5.08h.84v.84h-.84zM11.08 5.08h.84v.84h-.84zM1.08 6.08h.84v.84h-.84zM2.08 6.08h.84v.84h-.84zM11.08 6.08h.84v.84h-.84zM12.08 6.08h.84v.84h-.84zM1.08 7.08h.84v.84h-.84zM11.08 7.08h.84v.84h-.84zM1.08 8.08h.84v.84h-.84zM2.08 8.08h.84v.84h-.84zM11.08 8.08h.84v.84h-.84zM12.08 8.08h.84v.84h-.84z"/></g></svg></span><h3>Uma chave por carteira.</h3><p>A chave raiz desembrulha só a chave da carteira que vai assinar. O que se guarda é a entropia, não as palavras, e ela sai da memória assim que a assinatura termina.</p></li>
+<li data-revelar><span class="promessa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.8 12s3.4-6 9.2-6 9.2 6 9.2 6-3.4 6-9.2 6-9.2-6-9.2-6Z"/><path d="m9.4 12.1 1.8 1.8 3.5-3.6"/></svg></span><h3>Nada é assinado às cegas.</h3><p>O assinador só aceita um plano que passou pela validação da rede: destino, valor, taxa com teto, tag e memo, e chamada de contrato decodificada contra uma lista compilada no app. A assinatura é verificada antes de sair.</p></li>
+<li data-revelar><span class="promessa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="7" height="15" rx="1.6"/><rect x="14.5" y="4.5" width="7" height="15" rx="1.6"/><path d="M5 8.5h2M17 8.5h2M5 11.5h2M17 11.5h2M11.2 10.6h1.6M11.2 13.4h1.6"/></svg></span><h3>Nenhum provedor decide nada.</h3><p>O chainId, a passphrase de rede, os contratos de token, os roteadores e os emissores são constantes compiladas. Nonce e sequence só valem com dois provedores concordando.</p></li>
+</ul>
+<p class="apoio links-bloco"><a class="codigo-link" href="../auditoria/codigo/chave-raiz/">Ler a chave raiz e o PIN</a> · <a class="codigo-link" href="../auditoria/codigo/assinador/">Ler o assinador</a> · <a class="codigo-link" href="../auditoria/codigo/conferencia-do-plano/">Ler a conferência do plano</a></p>
+</div>
+</section>
+
+<section class="bloco" aria-labelledby="t-cadeia">
+<div class="wrap seg-cadeia">
+<div>
+<h2 id="t-cadeia">Do PIN até a assinatura</h2>
+<p class="lead intro">Cada degrau abre só o seguinte, e só no próprio aparelho. Nenhum deles existe fora dele.</p>
+</div>
+<ol class="cadeia cadeia-acende" aria-label="Do PIN até a assinatura">
+<li><span class="no"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="4" cy="9" r="1.6" fill="currentColor"/><circle cx="9" cy="9" r="1.6" fill="currentColor"/><circle cx="14" cy="9" r="1.6" fill="currentColor"/></svg></span><div><b>Seu PIN</b><span>Seis dígitos que não ficam gravados em lugar nenhum, nem como verificador.</span></div></li>
+<li><span class="no"><svg class="pixel-icone" viewBox="0 0 11 11" aria-hidden="true"><g fill="currentColor" stroke="none"><path d="M0.08 0.08h.84v.84h-.84zM1.08 0.08h.84v.84h-.84zM3.08 0.08h.84v.84h-.84zM4.08 0.08h.84v.84h-.84zM6.08 0.08h.84v.84h-.84zM7.08 0.08h.84v.84h-.84zM0.08 1.08h.84v.84h-.84zM1.08 1.08h.84v.84h-.84zM3.08 1.08h.84v.84h-.84zM4.08 1.08h.84v.84h-.84zM6.08 1.08h.84v.84h-.84zM7.08 1.08h.84v.84h-.84zM0.08 3.08h.84v.84h-.84zM1.08 3.08h.84v.84h-.84zM6.08 3.08h.84v.84h-.84zM7.08 3.08h.84v.84h-.84zM0.08 4.08h.84v.84h-.84zM1.08 4.08h.84v.84h-.84zM6.08 4.08h.84v.84h-.84zM7.08 4.08h.84v.84h-.84zM3.08 6.08h.84v.84h-.84zM4.08 6.08h.84v.84h-.84zM3.08 7.08h.84v.84h-.84zM4.08 7.08h.84v.84h-.84zM6.08 9.08h.84v.84h-.84zM7.08 9.08h.84v.84h-.84zM6.08 10.08h.84v.84h-.84zM7.08 10.08h.84v.84h-.84z"/><path class="pisca p1" d="M9.08 6.08h.84v.84h-.84zM10.08 6.08h.84v.84h-.84zM9.08 7.08h.84v.84h-.84zM10.08 7.08h.84v.84h-.84z"/><path class="pisca p2" d="M9.08 0.08h.84v.84h-.84zM10.08 0.08h.84v.84h-.84zM9.08 1.08h.84v.84h-.84zM10.08 1.08h.84v.84h-.84zM0.08 9.08h.84v.84h-.84zM1.08 9.08h.84v.84h-.84zM0.08 10.08h.84v.84h-.84zM1.08 10.08h.84v.84h-.84z"/><path opacity="0.3" d="M9.08 3.08h.84v.84h-.84zM10.08 3.08h.84v.84h-.84zM9.08 4.08h.84v.84h-.84zM10.08 4.08h.84v.84h-.84zM3.08 9.08h.84v.84h-.84zM4.08 9.08h.84v.84h-.84zM3.08 10.08h.84v.84h-.84zM4.08 10.08h.84v.84h-.84z"/><path opacity="0.3" class="pisca p3" d="M6.08 6.08h.84v.84h-.84zM7.08 6.08h.84v.84h-.84zM6.08 7.08h.84v.84h-.84zM7.08 7.08h.84v.84h-.84z"/><path opacity="0.55" d="M0.08 6.08h.84v.84h-.84zM1.08 6.08h.84v.84h-.84zM0.08 7.08h.84v.84h-.84zM1.08 7.08h.84v.84h-.84zM9.08 9.08h.84v.84h-.84zM10.08 9.08h.84v.84h-.84zM9.08 10.08h.84v.84h-.84zM10.08 10.08h.84v.84h-.84z"/><path opacity="0.55" class="pisca p1" d="M3.08 3.08h.84v.84h-.84zM4.08 3.08h.84v.84h-.84zM3.08 4.08h.84v.84h-.84zM4.08 4.08h.84v.84h-.84z"/></g></svg></span><div><b>Argon2id com 256 MiB</b><span>Cada tentativa custa memória e tempo, de propósito.</span></div></li>
+<li><span class="no"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M9 1.8 15 4v4.6c0 3.6-2.6 6.4-6 7.6-3.4-1.2-6-4-6-7.6V4Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="m6.4 9 1.8 1.8L11.8 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Chip de segurança</b><span>O Secure Enclave, no iPhone: a chave do PIN só abre nele, uma tentativa de cada vez.</span></div></li>
+<li><span class="no"><svg class="pixel-icone" viewBox="0 0 11 11" aria-hidden="true"><g fill="currentColor" stroke="none"><path d="M3.08 0.08h.84v.84h-.84zM4.08 0.08h.84v.84h-.84zM5.08 0.08h.84v.84h-.84zM6.08 0.08h.84v.84h-.84zM7.08 0.08h.84v.84h-.84zM3.08 1.08h.84v.84h-.84zM7.08 1.08h.84v.84h-.84zM3.08 2.08h.84v.84h-.84zM7.08 2.08h.84v.84h-.84zM3.08 3.08h.84v.84h-.84zM4.08 3.08h.84v.84h-.84zM5.08 3.08h.84v.84h-.84zM6.08 3.08h.84v.84h-.84zM7.08 3.08h.84v.84h-.84zM5.08 4.08h.84v.84h-.84zM5.08 5.08h.84v.84h-.84zM1.08 6.08h.84v.84h-.84zM2.08 6.08h.84v.84h-.84zM3.08 6.08h.84v.84h-.84zM4.08 6.08h.84v.84h-.84zM5.08 6.08h.84v.84h-.84zM6.08 6.08h.84v.84h-.84zM7.08 6.08h.84v.84h-.84zM8.08 6.08h.84v.84h-.84zM9.08 6.08h.84v.84h-.84zM1.08 7.08h.84v.84h-.84zM5.08 7.08h.84v.84h-.84zM9.08 7.08h.84v.84h-.84zM1.08 8.08h.84v.84h-.84zM5.08 8.08h.84v.84h-.84zM9.08 8.08h.84v.84h-.84z"/><path opacity="0.55" d="M0.08 9.08h.84v.84h-.84zM1.08 9.08h.84v.84h-.84zM2.08 9.08h.84v.84h-.84zM4.08 9.08h.84v.84h-.84zM5.08 9.08h.84v.84h-.84zM6.08 9.08h.84v.84h-.84zM8.08 9.08h.84v.84h-.84zM9.08 9.08h.84v.84h-.84zM10.08 9.08h.84v.84h-.84zM0.08 10.08h.84v.84h-.84zM1.08 10.08h.84v.84h-.84zM2.08 10.08h.84v.84h-.84zM4.08 10.08h.84v.84h-.84zM5.08 10.08h.84v.84h-.84zM6.08 10.08h.84v.84h-.84zM8.08 10.08h.84v.84h-.84zM9.08 10.08h.84v.84h-.84zM10.08 10.08h.84v.84h-.84z"/></g></svg></span><div><b>Chave raiz</b><span>Destranca só a chave da carteira que vai assinar.</span></div></li>
+<li><span class="no"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2.5 13.5c2-.2 2.8-2.6 4.2-2.6 1.6 0 .6 2.6 2.4 2.6 1.4 0 2.2-1.6 3.4-1.6.8 0 1.2.6 3 .6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m10.5 3.5 3 3-5 5H5.5v-3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><div><b>Chave da carteira</b><span>Assina, confere a assinatura e é apagada da memória.</span></div></li>
+</ol>
+</div>
+</section>
+
+<section class="bloco titulos-centro" aria-labelledby="t-ligar">
+<div class="wrap">
+<h2 id="t-ligar">O que você pode ligar</h2>
+<p class="lead intro">Camadas a mais, para quem quer. Todas ficam no celular e nenhuma depende de servidor.</p>
+<ul class="camadas">
+<li data-revelar><h3>Super Security</h3><p>O PIN e o Face ID juntos para abrir o app, enviar, trocar e ver as palavras. Nenhum dos dois sozinho abre nada: é a própria cifra das carteiras que pede os dois.</p></li>
+<li data-revelar><h3>Safe Keyboard</h3><p>Um teclado desenhado pelo app, em todo campo. O teclado do seu celular não vê as letras, e nada é previsto, ditado ou aprendido.</p></li>
+<li data-revelar><h3>Passphrase</h3><p>Uma senha extra que abre outra carteira nas mesmas palavras, pedida antes de mover saldo e conferida dentro do cofre.</p></li>
+<li data-revelar><h3>Envelope Escalibur</h3><p>Uma cópia cifrada da senha da carteira, com Argon2id e ChaCha20-Poly1305, trancada com uma senha só sua.</p></li>
+</ul>
+</div>
+</section>
+
+<section class="bloco titulos-centro" aria-labelledby="t-ameacas">
+<div class="wrap">
+<h2 id="t-ameacas">Contra quem</h2>
+<p class="lead intro">Os casos reais, do mais comum ao mais raro, e o que o app faz em cada um.</p>
+<ol class="ameacas">
+<li class="ameaca" data-revelar>
+<h3><span class="ameaca-numero">01</span>Alguém que viu o código do seu celular e levou o aparelho.</h3>
+<div class="defesa"><p class="rotulo-faz">O que o app faz</p><p>É o caso mais comum de roubo. O código de desbloqueio do celular não abre nada aqui: o app pede o PIN ou o rosto ao abrir e trava ao sair. A espera entre erros de PIN cresce até tornar inviável tentar todos pela tela. Ver ou exportar as palavras pede o PIN.</p></div>
+<div class="sobra"><p class="rotulo-sobra">Na prática</p><p>Sem o PIN e sem o rosto do dono, a carteira não abre.</p></div>
+</li>
+<li class="ameaca" data-revelar>
+<h3><span class="ameaca-numero">02</span>Ladrão com o celular bloqueado.</h3>
+<div class="defesa"><p class="rotulo-faz">O que o app faz</p><p>Tudo fica protegido pelo código de desbloqueio, preso ao aparelho, e a chave raiz só existe embrulhada pelo chip de segurança. As chaves de proteção de arquivo somem segundos depois do bloqueio.</p></div>
+<div class="sobra"><p class="rotulo-sobra">Na prática</p><p>Mesmo com ferramenta forense, a chave continua presa ao chip de segurança e ao PIN, que não fica gravado em lugar nenhum.</p></div>
+</li>
+<li class="ameaca" data-revelar>
+<h3><span class="ameaca-numero">03</span>Exploit com execução de código no celular desbloqueado.</h3>
+<div class="defesa"><p class="rotulo-faz">O que o app faz</p><p>Nenhum byte gravado abre fora do chip de segurança do aparelho, e o PIN não tem verificador para levar embora: o ataque fica preso ao aparelho, uma tentativa por vez. A chave da carteira só existe na memória durante a assinatura.</p></div>
+<div class="sobra"><p class="rotulo-sobra">Na prática</p><p>Cada tentativa de PIN passa pelo chip, uma por vez, com 256 MiB de memória, e a chave da carteira só existe durante a assinatura. Com o Super Security ligado, nem o PIN certo basta: a cifra pede também o rosto do dono.</p></div>
+</li>
+<li class="ameaca" data-revelar>
+<h3><span class="ameaca-numero">04</span>Rede hostil ou provedor mentindo.</h3>
+<div class="defesa"><p class="rotulo-faz">O que o app faz</p><p>ATS padrão, sem exceção, e nenhuma decisão de assinatura tomada com dado de rede. A chamada de contrato é decodificada no próprio celular, a aprovação é no valor exato, o mínimo é garantido pelo contrato, a taxa tem teto e o nonce exige dois provedores concordando.</p></div>
+<div class="sobra"><p class="rotulo-sobra">Na prática</p><p>No máximo, uma rota dentro da tolerância de preço que você escolheu. Nenhum dado de rede decide o que é assinado.</p></div>
+</li>
+<li class="ameaca" data-revelar>
+<h3><span class="ameaca-numero">05</span>Golpe: endereço falso, token falso, área de transferência.</h3>
+<div class="defesa"><p class="rotulo-faz">O que o app faz</p><p>Sem navegador de dapps e sem conexão com sites: só se assina o que o app monta. Endereço parecido com um do seu histórico é marcado, transferência de valor zero e token fora da lista ficam à parte, e o endereço colado aparece inteiro para conferir.</p></div>
+<div class="sobra"><p class="rotulo-sobra">Na prática</p><p>O endereço suspeito bloqueia o envio até você conferir e confirmar, com o endereço inteiro na tela.</p></div>
+</li>
+<li class="ameaca" data-revelar>
+<h3><span class="ameaca-numero">06</span>Atualização maliciosa: GitHub invadido, conta da Apple invadida ou a própria Apple.</h3>
+<div class="defesa"><p class="rotulo-faz">O que o app faz</p><p>Nenhum pacote remoto e nenhum binário de terceiro: o código de fora está no repositório, compilado do fonte e travado por SHA-256. Cada versão é autorizada numa lista assinada por chaves que nunca passam pelo GitHub nem pela Apple, e as chaves públicas estão gravadas dentro do app. Se aparecer na loja uma versão fora da lista, a carteira entra em modo lockdown: o app inteiro fica travado atrás do alerta de tentativa de hack, que diz para não abrir a versão nova, até a Escalibur conferir a versão.</p></div>
+<div class="sobra"><p class="rotulo-sobra">Na prática</p><p>A lista de versões é assinada fora do GitHub e da Apple, e o código de cada versão é público: qualquer pessoa compara o app da loja com o build atestado.</p></div>
+</li>
+</ol>
+</div>
+</section>
+
+<section class="bloco" aria-label="Auditoria e relato de bugs">
+<div class="wrap seg-final">
+<article class="painel" data-revelar aria-labelledby="t-auditar">
+<p class="sobretitulo">Auditoria</p>
+<h2 id="t-auditar">Conferido por script, a cada mudança</h2>
+<p class="lead intro">O que esta página afirma, o <code>tools/verificar.sh</code> confere no código: rede só no módulo de rede, chave só no módulo de chaves, chaveiro só em dois arquivos, nenhum SDK de análise, nenhum host fora da lista. São 111 verificações, e o CI para o merge se uma falhar.</p>
+<div class="botoes links-bloco"><a class="botao botao-principal" href="../auditoria/">Abrir a auditoria</a></div>
+</article>
+<article class="painel" data-revelar aria-labelledby="t-relatar">
+<p class="sobretitulo">Bugs</p>
+<h2 id="t-relatar">Achou um bug?</h2>
+<p class="lead intro">Relate em particular pelo <a href="https://github.com/Escalibur-Wallet/escalibur-wallet/security/advisories/new">GitHub</a>, sem abrir issue pública. Os prazos que assumimos:</p>
+<ol class="prazos"><li><b>72 horas</b><span>Confirmação do recebimento</span></li><li><b>7 dias</b><span>Triagem</span></li><li><b>30 dias</b><span>Correção de bug crítico</span></li><li><b>até 90 dias</b><span>Divulgação coordenada</span></li></ol>
+<p class="apoio links-bloco">Pesquisa de boa-fé dentro do escopo não é tratada como violação. O escopo completo está no <a href="https://github.com/Escalibur-Wallet/escalibur-wallet/blob/main/SECURITY.md">SECURITY.md</a>.</p>
+</article>
+</div>
+</section>
+
+<section class="final" id="baixar" aria-labelledby="t-final">
+<div class="wrap final-texto">
+<div class="final-moeda">
+<img class="final-moeda-parada" src="../midia/moeda-escalibur.webp" alt="" width="640" height="640" loading="lazy" decoding="async" draggable="false">
+<canvas class="final-3d" aria-hidden="true"></canvas>
+</div>
+<h2 class="titulo-secao" id="t-final">Sua chave. Seu celular.<br>Mais ninguém.</h2>
+<p class="lead">Sem conta, sem servidor da Escalibur e sem ninguém do nosso lado com acesso ao seu saldo. Só você assina. Disponível no Google Play. Em breve na App Store.</p>
+<div class="lojas"><div class="botoes"><span class="selo-loja em-breve"><img src="../selos/baixar-na-app-store.svg" alt="Baixar na App Store" width="156" height="52"></span><a class="selo-loja" href="https://play.google.com/store/apps/details?id=app.escalibur.wallet"><img src="../selos/disponivel-no-google-play.png" alt="Disponível no Google Play" width="175" height="52"></a></div><p class="lojas-nota">Em breve na App Store.</p></div>
+</div>
+<div class="podio" aria-label="Telas do app, em inglês">
+<div class="aparelho podio-lado"><div class="tela"><img class="capa" src="../midia/foto-carteira.webp" alt="A Carteira no app, em inglês: o saldo total e a lista de ativos" width="720" height="1566" loading="lazy" decoding="async"></div></div>
+<figure class="podio-foto"><img src="../midia/foto-mao-bitcoin.webp" alt="Uma mão segurando o celular na página do bitcoin no app, em inglês: o preço e o gráfico das últimas 24 horas" width="940" height="1672" loading="lazy" decoding="async" draggable="false"></figure>
+<div class="aparelho podio-lado"><div class="tela"><img class="capa" src="../midia/foto-trocar.webp" alt="A troca no app, em inglês: 250 XRP por RLUSD no XRP Ledger, com a cotação" width="720" height="1566" loading="lazy" decoding="async"></div></div>
+</div>
+</section>
+
+
+</main>
+<footer class="rodape">
+<div class="wrap">
+<div class="rodape-colunas">
+<div class="rodape-marca">
+<a class="marca" href="../"><img src="../icone-64.png" alt="" width="28" height="28">Escalibur Wallet</a>
+<p>Carteira cripto self-custody.<br>Versão 1.0.1 (build 15).</p>
+<div class="lojas"><div class="botoes"><span class="selo-loja em-breve"><img src="../selos/baixar-na-app-store.svg" alt="Baixar na App Store" width="156" height="52"></span><a class="selo-loja" href="https://play.google.com/store/apps/details?id=app.escalibur.wallet"><img src="../selos/disponivel-no-google-play.png" alt="Disponível no Google Play" width="175" height="52"></a></div><p class="lojas-nota">Em breve na App Store.</p></div>
+</div>
+<div>
+<h2>Produto</h2>
+<ul><li><a href="../">Início</a></li><li><a href="../redes/">Redes e moedas</a></li><li><a href="../novidades/">Novidades</a></li></ul>
+</div>
+<div>
+<h2>Segurança</h2>
+<ul><li><a href="../seguranca/">Como protege</a></li><li><a href="../auditoria/">Auditoria</a></li><li><a href="https://github.com/Escalibur-Wallet/escalibur-wallet">Código no GitHub</a></li><li><a href="../suporte/">Relatar um bug</a></li></ul>
+</div>
+<div>
+<h2>Ajuda</h2>
+<ul><li><a href="../suporte/">Suporte</a></li><li><a href="../privacidade/">Privacidade</a></li><li><a href="../termos/">Termos de uso</a></li></ul>
+</div>
+</div>
+<div class="rodape-legal">
+<p>A Escalibur Wallet é oferecida por X TECH A.I FUND HOLDING E PARTICIPACOES LTDA, CNPJ 64.019.520/0001-29.</p>
+<p>Apple, iPhone, Face ID e App Store são marcas da Apple Inc. Android, Google Play e o logo do Google Play são marcas do Google LLC. Os logos de redes e moedas pertencem aos seus donos e aparecem só para identificar cada uma.</p>
+<p>Este site foi gerado do commit <a href="https://github.com/Escalibur-Wallet/escalibur-wallet/commit/48dbd03c841ad0abd3b200d6363950aadf97c6bb">48dbd03</a>, de 30 out. 2026. Sem análise de uso, sem cookie, sem nada carregado de outro site.</p>
+</div>
+</div>
+</footer>
+</body>
+</html>

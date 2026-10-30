@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://escaliburwallet.com/sitemap.xml
